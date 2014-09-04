@@ -1,0 +1,19 @@
+<div ng-controller="postsController">
+  <form>
+    <input type="text" placeholder="Title" ng-model="newPost.title">
+    <textarea name="content" id="" cols="30" rows="10" ng-model="newPost.content"></textarea>
+    <button ng-click="addPost(newPost)">Submit</button>
+  </form>
+
+  <section ng-repeat="post in list">
+    <h2>{{post.heading}}</h2>
+    <p>{{post.content}}</p>
+    <form ng-show="edit">
+      <input type="text" placeholder="{{post.heading}}" ng-model="post.heading">
+      <textarea name="" id="" cols="30" rows="10" ng-model="post.content"></textarea>
+      <button ng-click="edit =! edit">Submit</button>
+    </form>
+    <button class="btn" ng-click="delete()">Delete</button>
+    <button ng-click="edit=!edit">Edit</button>
+  </section>
+</div>
